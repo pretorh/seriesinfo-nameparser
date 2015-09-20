@@ -1,3 +1,6 @@
 set -e
 clear
-perl tests/*
+for f in tests/*; do
+    echo $f
+    perl $f
+done
