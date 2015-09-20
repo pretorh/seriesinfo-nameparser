@@ -10,12 +10,13 @@ sub parse {
 }
 
 sub build {
+    my ($show, $season, $number, $title, $match) = @_;
     return {
-        show => shift @_,
-        season => (shift @_) + 0,
-        number => (shift @_) + 0,
-        title => shift @_,
-        match => shift @_,
+        show => $show,
+        season => $season + 0,
+        number => $number + 0,
+        title => $title,
+        match => $match,
     };
 }
 
