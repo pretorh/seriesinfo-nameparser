@@ -6,6 +6,7 @@ sub parse {
     $_ = $s;
     return build($1, $2, $3, $4, "simple") if (m/(.+?) (\d?) (\d?) (.+)$/);
     return build($1, $2, $3, $4, "SxxExx") if (m/(.+?)\WS(\d\d?)E(\d\d?)\W(.+)$/);
+    return build($1, $2, $3, $4,  "__x__") if (m/(.+?)\D(\d\d?)x(\d\d?)\W(.+)$/);
     return;
 }
 
