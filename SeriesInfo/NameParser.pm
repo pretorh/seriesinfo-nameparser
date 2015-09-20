@@ -5,7 +5,7 @@ sub parse {
 
     $_ = $s;
     return build($1, $2, $3, $4, "simple") if (m/(.+?) (\d?) (\d?) (.+)$/);
-    return build($1, $2, $3, $4, "SxxExx") if (m/(.+?)\WS(\d\d?)E(\d\d?)\W(.+)$/);
+    return build($1, $2, $3, $4, "SxxExx") if (m/(.+?)\WS(\d\d?)E(\d\d+)\W(.+)$/);
     return build($1, $2, $3, $4,  "__x__") if (m/(.+?)\D(\d\d?)x(\d\d?)\W(.+)$/);
     return;
 }
@@ -20,6 +20,9 @@ sub build {
     $season += 0;
     $number += 0;
     my @numbers = ($number);
+    if ($number > 99) {
+        @numbers = (int($number / 100), $number % 100);
+    }
 
     return {
         show => $show,
