@@ -1,4 +1,4 @@
-package SeriesInfo::NameParse;
+package SeriesInfo::NameParser;
 
 sub parse {
     my ($s) = @_;

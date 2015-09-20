@@ -1,14 +1,14 @@
 #!/usr/bin/perl
 use strict;
 use warnings;
-use SeriesInfo::NameParse;
+use SeriesInfo::NameParser;
 
 if (scalar @ARGV != 1) {
     print STDERR "Expect <name> as argument\n";
     exit(1);
 }
 
-my $d = SeriesInfo::NameParse::parse($ARGV[0]);
+my $d = SeriesInfo::NameParser::parse($ARGV[0]);
 if ($d) {
     print $d->{show}, "\n";
     print $d->{season}, "\n";
