@@ -7,11 +7,12 @@ use Test::More tests => 3;
 
 my $s = "show 1 2 title";
 subtest $s => sub {
-    plan tests => 4;
+    plan tests => 5;
     is SeriesInfo::NameParser::parse($s)->{show}  , "show"   , "get show from string";
     is SeriesInfo::NameParser::parse($s)->{season}, 1        , "get season number from string";
     is SeriesInfo::NameParser::parse($s)->{number}, 2        , "get episode number from string";
     is SeriesInfo::NameParser::parse($s)->{title} , "title"  , "get title from string";
+    is SeriesInfo::NameParser::parse($s)->{year}  , undef    , "year is undefined";
 };
 
 is SeriesInfo::NameParser::parse(""), undef, "undefined returned for empty string";

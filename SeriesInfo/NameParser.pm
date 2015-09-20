@@ -11,11 +11,14 @@ sub parse {
 
 sub build {
     my ($show, $season, $number, $title, $match) = @_;
-    if ($show =~ /(.+)\W+\d\d\d\d/) {
+    my $year;
+    if ($show =~ /(.+)\W+(\d\d\d\d)/) {
         $show = $1;
+        $year = $2 + 0;
     }
     return {
         show => $show,
+        year => $year,
         season => $season + 0,
         number => $number + 0,
         title => $title,
