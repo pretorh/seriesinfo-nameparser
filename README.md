@@ -19,3 +19,13 @@ Perl module to parse string to get show name, season number, episode number
     - int/undef. year number if the show name included it
 - match
     - string. name of the type of match used
+
+## Type of matches
+
+The following types of matches are catered for:
+
+- `show 1 2 title`
+- `show S01E02 title`
+- `show 01x02 title`
+
+All of these are for 'show', season 1, episode number 2, 'title'
