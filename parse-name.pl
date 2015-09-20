@@ -1,0 +1,20 @@
+#!/usr/bin/perl
+use strict;
+use warnings;
+use SeriesInfo::NameParse;
+
+if (scalar @ARGV != 1) {
+    print STDERR "Expect <name> as argument\n";
+    exit(1);
+}
+
+my $d = SeriesInfo::NameParse::parse($ARGV[0]);
+if ($d) {
+    print $d->{show}, "\n";
+    print $d->{season}, "\n";
+    print $d->{number}, "\n";
+    print $d->{title}, "\n";
+} else {
+    print STDERR "Failed to parse '$ARGV[0]'\n";
+    exit(2);
+}
