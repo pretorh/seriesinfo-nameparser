@@ -17,11 +17,14 @@ sub build {
         $show = $1;
         $year = $2 + 0;
     }
+    $season += 0;
+    $number += 0;
+
     return {
         show => $show,
         year => $year,
-        season => $season + 0,
-        number => $number + 0,
+        season => $season,
+        number => $number,
         title => $title,
         match => $match,
     };
