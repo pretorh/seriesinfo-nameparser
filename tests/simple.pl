@@ -3,7 +3,7 @@ use strict;
 use warnings;
 use SeriesInfo::NameParser;
 
-use Test::More tests => 3;
+use Test::More tests => 4;
 
 my $s = "show 1 2 title";
 subtest $s => sub {
@@ -17,3 +17,6 @@ subtest $s => sub {
 
 is SeriesInfo::NameParser::parse(""), undef, "undefined returned for empty string";
 isnt SeriesInfo::NameParser::parse($s)->{match} , undef , "get the match details in the result";
+my @expect = (2);
+is_deeply SeriesInfo::NameParser::parse($s)->{numbers}, \@expect,
+    "get single episode number in array for single episode from string";

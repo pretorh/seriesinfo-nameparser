@@ -19,12 +19,14 @@ sub build {
     }
     $season += 0;
     $number += 0;
+    my @numbers = ($number);
 
     return {
         show => $show,
         year => $year,
         season => $season,
         number => $number,
+        numbers => \@numbers,
         title => $title,
         match => $match,
     };

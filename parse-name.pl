@@ -13,7 +13,12 @@ if ($d) {
     print STDERR "match type: $d->{match}\n";
     print $d->{show}, "\n";
     print $d->{season}, "\n";
-    print $d->{number}, "\n";
+    my $numbers = $d->{numbers};
+    if (scalar @$numbers > 1) {
+        print "$_\n" foreach(@$numbers);
+    } else {
+        print $d->{number}, "\n";
+    }
     print $d->{title}, "\n";
 } else {
     print STDERR "Failed to parse '$ARGV[0]'\n";
