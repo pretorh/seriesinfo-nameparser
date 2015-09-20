@@ -10,6 +10,7 @@ if (scalar @ARGV != 1) {
 
 my $d = SeriesInfo::NameParser::parse($ARGV[0]);
 if ($d) {
+    print STDERR "match type: $d->{match}\n";
     print $d->{show}, "\n";
     print $d->{season}, "\n";
     print $d->{number}, "\n";
