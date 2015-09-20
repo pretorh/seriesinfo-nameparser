@@ -29,3 +29,8 @@ The following types of matches are catered for:
 - `show 01x02 title`
 
 All of these are for 'show', season 1, episode number 2, 'title'
+
+## Tests
+
+Tests files are located in the tests/ dir and use perl's `Test::More` module.  
+They can be run using `./run-tests.sh`
