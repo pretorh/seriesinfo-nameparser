@@ -15,12 +15,8 @@ sub build {
     my ($show, $season, $number, $title, $match) = @_;
     my $year;
     ($show, $year, $number) = cleanUpValues($show, $number);
-    $season += 0;
-    $number += 0;
-    my @numbers = ($number);
-    if ($number > 99) {
-        @numbers = (int($number / 100), $number % 100);
-    }
+    my @numbers;
+    ($season, $number, @numbers) = getSeasonAndNumbers($season, $number);
 
     return {
         show => $show,
@@ -42,6 +38,17 @@ sub cleanUpValues {
     }
     $number =~ s/&// if ($number =~ /&/);
     return ($show, $year, $number);
+}
+
+sub getSeasonAndNumbers {
+    my ($season, $number) = @_;
+    $season += 0;
+    $number += 0;
+    my @numbers = ($number);
+    if ($number > 99) {
+        @numbers = (int($number / 100), $number % 100);
+    }
+    return ($season, $number, @numbers);
 }
 
 1;
