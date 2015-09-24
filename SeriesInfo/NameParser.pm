@@ -14,11 +14,7 @@ sub parse {
 sub build {
     my ($show, $season, $number, $title, $match) = @_;
     my $year;
-    if ($show =~ /(.+)\W+(\d\d\d\d)/) {
-        $show = $1;
-        $year = $2 + 0;
-    }
-    $number =~ s/&// if ($number =~ /&/);
+    ($show, $year, $number) = cleanUpValues($show, $number);
     $season += 0;
     $number += 0;
     my @numbers = ($number);
@@ -35,6 +31,17 @@ sub build {
         title => $title,
         match => $match,
     };
+}
+
+sub cleanUpValues {
+    my ($show, $number) = @_;
+    my $year;
+    if ($show =~ /(.+)\W+(\d\d\d\d)/) {
+        $show = $1;
+        $year = $2 + 0;
+    }
+    $number =~ s/&// if ($number =~ /&/);
+    return ($show, $year, $number);
 }
 
 1;
